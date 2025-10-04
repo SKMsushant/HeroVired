@@ -1,29 +1,4 @@
 use lms;
-show tables;
-select *
-from assessment_submission;
-describe assessment_submission;
-select *
-from assessments;
-describe assessments;
-select *
-from categories;
-describe categories;
-select *
-from content;
-describe content;
-select *
-from courses;
-describe courses;
-select *
-from enrollments;
-describe enrollments;
-select *
-from modules;
-describe modules;
-select *
-from user;
-describe user;
 
 -- 1. List All Courses with Their Category Names
 -- Question: Retrieve a list of courses along with the name of the category to which each course belongs.
