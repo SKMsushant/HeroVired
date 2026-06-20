@@ -199,8 +199,9 @@ st.markdown("<p style='text-align: center; color: gray; font-size: 18px; margin-
 tab1, tab2, tab3 = st.tabs(["🔍 Diagnosis Center", "📋 Remedies & Treatment Guide", "🧠 Model Architecture"])
 
 # Load model weights (or use mock classification if weights are not ready yet)
-weights_path = r"models/final_plant_disease_detection_model.weights.h5"
-hps_path = r"models/best_hps.json"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+weights_path = os.path.join(BASE_DIR, "models", "final_plant_disease_detection_model.weights.h5")
+hps_path = os.path.join(BASE_DIR, "models", "best_hps.json")
 
 @st.cache_resource
 def load_shield_model():
