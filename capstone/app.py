@@ -451,7 +451,7 @@ with tab3:
             st.image(
                 "https://images.unsplash.com/photo-1592150621744-aca64f48394a?q=80&w=600&auto=format&fit=crop", 
                 caption="Overlay Map: Self-Attention weights highlighted on active lesions.",
-                use_column_width=True
+                width=300
             )
         else:
             st.info("Run a diagnosis to view leaf attention map overlays.")
