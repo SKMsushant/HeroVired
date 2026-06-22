@@ -456,7 +456,38 @@ param_tuner.search(
 tuner_end=time.time()
 print(f'{(tuner_end-tuner_start)/60} Minutes')
 
+
+
 # ==========================================
 # CELL 7
 # ==========================================
+import json
+train_start=time.time()
+best_hp=param_tuner.get_best_hyperparameters()[0]
+
+best_model=param_tuner.hypermodel.build(best_hp)
+
+final_epochs=best_hp.get('epochs')
+
+print(f'\n Starting Final Training of the model for {final_epochs} epochs')
+
+history=hyperCNNmodel.fit(
+    hp=best_hp,
+    x=train_pipeline,
+    model=best_model,
+    validation_data=val_pipeline,
+)
+
+train_end=time.time()
+final_weights_path=r"models\final_plant_disease_detection_model.weights.h5"
+
+best_hps_dict = best_hp.values
+best_hps_filepath = r"models\best_hps.json"
+with open(best_hps_filepath, "w") as f:
+    json.dump(best_hps_dict, f, indent=4)
+print(f"Best hyperparameters saved to '{best_hps_filepath}'")
+
+best_model.save_weights(final_weights_path)
+print(f'Final weights saved successfully to : {final_weights_path}')
+print(f'Total Training Time : {(train_end-train_start)/(60*60)} Hours')
 
