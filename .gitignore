@@ -20,3 +20,4 @@ capstone/tuner_logs
 check_nan.py
 capstone/test_data
 hvc/capstone.zip
+tests.ipynb
